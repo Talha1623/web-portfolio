@@ -1618,8 +1618,6 @@
                     <ul class="footer-links">
                         <li><a href="{{url('/age-calculator')}}">Age Calculator</a></li>
                         <li><a href="{{url('/qr-generator')}}">QR Code Generator</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
                     </ul>
                 </div>
             </div>

@@ -65,22 +65,6 @@ class ProjectController extends Controller
         // Get active categories for filter buttons
         $categories = \App\Models\Category::active()->ordered()->get();
         
-        // If no categories exist, create some default ones
-        if ($categories->isEmpty()) {
-            \Log::warning('No categories found, creating defaults');
-            $defaultCategories = [
-                ['name' => 'Web Development', 'slug' => 'web-development', 'is_active' => true, 'sort_order' => 1],
-                ['name' => 'Mobile Apps', 'slug' => 'mobile-apps', 'is_active' => true, 'sort_order' => 2],
-                ['name' => 'UI/UX Design', 'slug' => 'ui-ux-design', 'is_active' => true, 'sort_order' => 3],
-            ];
-            
-            foreach ($defaultCategories as $catData) {
-                \App\Models\Category::create($catData);
-            }
-            
-            $categories = \App\Models\Category::active()->ordered()->get();
-        }
-        
         // Get admin user profile data for logo and name
         $user = \App\Models\User::where('is_admin', true)->first();
         
